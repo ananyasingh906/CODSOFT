@@ -14,6 +14,7 @@ public class grade_calc {
 
   void input(){
     Scanner sc = new Scanner(System.in);
+    try{
     System.out.println("Enter marks of Maths: ");
     maths = sc.nextFloat();
     System.out.println("Enter marks of Science: ");
@@ -22,6 +23,9 @@ public class grade_calc {
     english = sc.nextFloat();
     System.out.println("Enter marks of Arts: ");
     art = sc.nextFloat();
+    } finally{
+      sc.close();
+    }
   }
 
   float calc_sum(){
@@ -60,9 +64,14 @@ public class grade_calc {
     System.out.println("Grade: " + calc_grade());
   }
   public static void main(String args[]){
+    int size;
     Scanner sc = new Scanner (System.in); 
-    System.out.println("Enter number of students: ");
-    int size = sc.nextInt();
+    try{
+      System.out.println("Enter number of students: ");
+      size = sc.nextInt();
+    } finally {
+      sc.close();
+    }
     grade_calc obj[] = new grade_calc[size];
     for (int i=0 ; i<size; i++){
       obj [i] =new grade_calc ();
